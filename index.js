@@ -100,7 +100,7 @@ async function run() {
         clientSecret: paymentIntent.client_secret,
       });
     });
-//payments
+//..payments
     app.post("/payments", async (req, res) => {
       const payment = req.body;
       const result = await paymentsCollection.insertOne(payment);
