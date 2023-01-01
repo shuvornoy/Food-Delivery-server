@@ -145,7 +145,7 @@ async function run() {
       res.send({ isAdmin: user?.role === "admin" });
     });
 
-    //seller
+    //..seller
     app.get("/users/seller/:email", async (req, res) => {
       const email = req.params.email;
       const query = { email };
