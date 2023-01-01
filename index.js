@@ -41,7 +41,7 @@ async function run() {
     const usersCollection = client.db("food-city").collection("users");
     const allProductsCollection = client.db("food-city").collection("allProducts");
     const paymentsCollection = client.db("food-city").collection("payments");
-//database 
+//..database 
 
     const verifyAdmin = async (req, res, next) => {
       const decodedEmail = req.decoded.email;
