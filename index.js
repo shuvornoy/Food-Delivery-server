@@ -66,7 +66,7 @@ async function run() {
       const orders = await ordersCollection.find(query).toArray();
       res.send(orders);
     });
-//single product
+//..single product
     app.get("/orders/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
