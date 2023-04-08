@@ -69,7 +69,7 @@ async function run() {
 //..single product
     app.get("/orders/:id", async (req, res) => {
       const id = req.params.id;
-      const query = { _id: ObjectId(id) };
+      const query = { _id: new ObjectId(id) };
       const booking = await ordersCollection.findOne(query);
       res.send(booking);
     });
@@ -105,7 +105,7 @@ async function run() {
       const payment = req.body;
       const result = await paymentsCollection.insertOne(payment);
       const id = payment.bookingId;
-      const filter = { _id: ObjectId(id) };
+      const filter = { _id: new ObjectId(id) };
       const updatedDoc = {
         $set: {
           paid: true,
@@ -163,7 +163,7 @@ async function run() {
 
     app.put("/users/admin/:id", verifyJWT, verifyAdmin, async (req, res) => {
       const id = req.params.id;
-      const filter = { _id: ObjectId(id) };
+      const filter = { _id: new ObjectId(id) };
       const options = { upsert: true };
       const updatedDoc = {
         $set: {
@@ -206,7 +206,7 @@ async function run() {
 //single product
     app.delete("/allProducts/:id", verifyJWT, verifyAdmin, async (req, res) => {
       const id = req.params.id;
-      const filter = { _id: ObjectId(id) };
+      const filter = { _id: new ObjectId(id) };
       const result = await allProductsCollection.deleteOne(filter);
       res.send(result);
     });
